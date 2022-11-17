@@ -1,50 +1,48 @@
 {% extends "base.html" %} 
 
-{% block content %} 
-    <br>
+{% block content %}    
     <div class="container">
         <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <h4 id="LoginText">Account User Login</h4>
+                <form action="" method="POST" >
+                    {{ form.hidden_tag() }}
+                    
+                    <div class="d-grid">
+                        {{ form.username.label }}
+                        {{ form.username(size=32 )}}
+                        {% for error in form.username.errors %} 
+                            <span style="color:red;">[{{ error }}]</span>
+                        {% endfor %}
+                                                         
+                        {{ form.password.label }}
+                        {{ form.password(size=32) }}
+                        {% for error in form.password.errors %} 
+                            <span style="color:red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                    <p>
+                        {{ form.remember_me() }}&nbsp; <small>{{ form.remember_me.label }}</small>
+                    </p>
+                        
+                    <p>
+                        <div class="d-grid">
+                            <button class="btn btn-outline-primary btn-lm" type="submit">Log In</button>{# form.submit() #}      
+                        </div>
+                    </p>
+                    <p>
+                        <div class="d-grid">
+                        <small> 
+                            New User? &nbsp;<a href="#">Click to Register!</a><br>
+                            Forgot Your Password? &nbsp;<a href="#">Click to reset it</a>
+                        </small>
+                        </div>
+                    </p>
+                </form>
+            </div>
         <div class="col col-lg-8">
-            <img src="{{ url_for('static', filename='images/inventory1.jpg') }}" class="img-fluid rounded" alt="Rhodeco Logo">                    
-        </div>
-        <div class="col-md-auto">
-            <h3>Account Login</h3>
-            <form action="" method="POST" >
-                {{ form.hidden_tag() }}
-                <p>
-                    {{ form.username.label }}<br>
-                    {{ form.username(size=32 )}}<br>
-                    {% for error in form.username.errors %} 
-                        <span style="color:red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                <p>
-                    {{ form.password.label }}<br>
-                    {{ form.password(size=32) }}<br>
-                    {% for error in form.password.errors %} 
-                        <span style="color:red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                <p>
-                    {{ form.remember_me() }}&nbsp; <small>{{ form.remember_me.label }} </small>
-                </p>
-                <p>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-primary btn-lm" type="submit">Log In</button>{# form.submit() #}      
-                    </div>                    
-                </p>
-                <p>
-                   <small> 
-                        New User? &nbsp;<a href="#">Click to Register!</a><br>
-                        Forgot Your Password? &nbsp;<a href="#">Click to reset it</a>
-                    </small>
-                </p>
-            </form>        
+            <img src="{{ url_for('static', filename='images/inventory1.jpg') }}" class="img-fluid rounded" alt="Rhodeco Background">
         </div>
         </div>
-    </div>
-    <!-- <div class="d-grid gap-2 col-3 mx-auto">
-    
-    </div> -->
-    
+    </div>  
 {% endblock %} 
