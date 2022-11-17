@@ -1,5 +1,21 @@
 {% extends "base.html" %} 
 
 {% block content %} 
-    <h3>Welcome to Job Order System!</h3>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <h5>&there4;&nbsp;News & Announcement&nbsp;&there4;</h5>
+                <div class="d-grid">
+                <ul>
+                    <li><a href="">13th Month is coming</a></li>
+                    <li><a href="">You can apply Calamity Loan</a></li>
+                    <li><a href="">New Management Team</a></li>
+                </ul>
+                </div>  
+            </div>
+        <div class="col col-lg-8">
+            <img src="{{ url_for('static', filename='images/inventory1.jpg') }}" class="img-fluid rounded" alt="Rhodeco Background">
+        </div>
+        </div>
+    </div>      
 {% endblock %} 
